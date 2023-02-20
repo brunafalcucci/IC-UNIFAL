@@ -3,12 +3,14 @@ import styled from 'styled-components'
 
 const NavBar = () => {
   return (
-    <Bruna> OLÁ PESSOAS </Bruna>
+    <WrapSide>  
+      Side Bar 
+    </WrapSide>
   )
 }
 
 
-const Bruna = styled.div`
+const WrapSide = styled.div`
 font-size: 100px;
 color: purple;
 `
