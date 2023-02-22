@@ -18,8 +18,7 @@ const NavBar = () => {
 
 
 const WrapSide = styled.div`
-width: 18%;
-height: 100%;
+width: clamp(5rem, 15vw, 15rem);
 min-height: 100vh;
 background-color: #D4F8B9; 
 img {
@@ -35,7 +34,7 @@ button {
 margin: 10%;
 border: 2px solid #525250;
 border-radius: 10px;
-font-size: 20px;
+font-size: clamp(0.5rem, 15vw, 1rem);
 background-color: #D4F8B9;
 box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 

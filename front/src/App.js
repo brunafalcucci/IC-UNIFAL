@@ -1,9 +1,10 @@
 import './App.css';
+import FormCalculo from './components/FormCalculo';
 import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <NavBar> </NavBar>
+    <FormCalculo> </FormCalculo>
   );
 }
 
