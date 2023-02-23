@@ -32,7 +32,7 @@ namespace Application
             string connectionString = "Server=db.iecxgqiqfqncxnwfhaxh.supabase.co;Port=5432;User Id=postgres;Password=ICUnifal2023;Database=postgres";
             service.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
-            service.AddScoped<IDadosRepository, DadosRepository>();
+            service.AddScoped<ICriticalityIndexRepository, CriticalityIndexRepository>();
         }
 
         public static void Configure(IApplicationBuilder app, IHostEnvironment env)
