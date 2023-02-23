@@ -14,13 +14,13 @@ namespace Application.Context
         {
         }
 
-        public DbSet<Dados> Dados => Set<Dados>();
+        public DbSet<CriticalityIndex> CriticalityIndex => Set<CriticalityIndex>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Dados>(new DadosMap().Configure);
+            modelBuilder.Entity<CriticalityIndex>(new CriticalityIndexMap().Configure);
         }
     }
 }

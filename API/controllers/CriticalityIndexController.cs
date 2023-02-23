@@ -9,35 +9,22 @@ namespace Application.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     [EnableCors("_myAllowSpecificOrigins")]
-    public class DadosController : ControllerBase
+    public class CriticalityIndexController : ControllerBase
     {
         public IConfiguration Configuration { get; }
-        private readonly IDadosRepository _DadosRepository;
-        public DadosController(IConfiguration configuration, IDadosRepository dadosRepository)
+        private readonly ICriticalityIndexRepository _CriticalityIndexRepository;
+        public CriticalityIndexController(IConfiguration configuration, ICriticalityIndexRepository CriticalityIndexRepository)
         {
             Configuration = configuration;
-            _DadosRepository = dadosRepository;
+            _CriticalityIndexRepository = CriticalityIndexRepository;
         }
 
         [HttpPost]
-        public ActionResult<bool> InsertDados([FromBody] Dados dados)
+        public ActionResult<bool> InsertCriticalityIndex([FromBody] CriticalityIndex criticalityIndex)
         {
             try
             {
-                return _DadosRepository.InsertDados(dados);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpPut]
-        public ActionResult<bool> UpdateDados([FromBody] Dados dados)
-        {
-            try
-            {                
-                return _DadosRepository.UpdateDados(dados);
+                return _CriticalityIndexRepository.InsertCriticalityIndex(criticalityIndex);
             }
             catch (Exception ex)
             {
@@ -46,11 +33,11 @@ namespace Application.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<bool> DeleteDados(int id)
+        public ActionResult<bool> DeleteCriticalityIndex(int id)
         {
             try
             {
-                return _DadosRepository.DeleteDados(id);
+                return _CriticalityIndexRepository.DeleteCriticalityIndex(id);
             }
             catch (Exception ex)
             {
@@ -59,11 +46,11 @@ namespace Application.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Dados> GetDadosById(int id)
+        public ActionResult<CriticalityIndex> GetCriticalityIndexById(int id)
         {
             try
             {
-                return _DadosRepository.GetDadosById(id);
+                return _CriticalityIndexRepository.GetCriticalityIndexById(id);
             }
             catch (Exception ex)
             {
@@ -72,11 +59,11 @@ namespace Application.Controllers
         }
 
         [HttpGet("{city}")]
-        public ActionResult<List<Dados>> GetDadosByCity(string city)
+        public ActionResult<List<CriticalityIndex>> GetCriticalityIndexByCity(string city)
         {
             try
             {
-                return _DadosRepository.GetDadosByCity(city);
+                return _CriticalityIndexRepository.GetCriticalityIndexByCity(city);
             }
             catch (Exception ex)
             {
