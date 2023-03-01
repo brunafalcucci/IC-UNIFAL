@@ -29,7 +29,7 @@ function Formulario() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`/api/CriticalityIndex/InsertCriticalityIndex , 
+    axios.post(`/api/CriticalityIndex/InsertCriticalityIndex, 
       Availability of repair personnel: ${availabilityOfRepairPersonnel}\n
       Operation Sensitivity: ${operationSensitivity}\n
       Work Load: ${workLoad}\n
@@ -59,10 +59,10 @@ function Formulario() {
    <Main>
         <NavBar> </NavBar>
         <FormWrapper>
-
+        <TitleOut> CRITICALITY INDEX FORM </TitleOut>
     <form onSubmit={handleSubmit}>
         <WrapFormNav> 
-        <WrapTotalForm>
+         <WrapTotalForm>
         <TitleForm> Environmental Quality </TitleForm>
         <WrapLabels>
 
@@ -251,5 +251,11 @@ button{
         display: grid;
         place-content:center;
     `
+
+  const TitleOut  = styled.h1`
+  font-size: 40px;
+  color: green !important;
+ text-align: center;
+  `
 
 export default Formulario;
