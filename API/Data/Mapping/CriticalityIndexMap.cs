@@ -26,135 +26,135 @@ namespace Data.Mapping
 
             builder.Property(prop => prop.CriticalityIndexValue)
                 .HasColumnName("CriticalityIndexValue")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
            builder.Property(prop => prop.CostsManagement)
                 .HasColumnName("CostsManagement")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
             
             builder.Property(prop => prop.IndustrialManagement)
                 .HasColumnName("IndustrialManagement")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
             
             builder.Property(prop => prop.EnvironmentalQuality)
                 .HasColumnName("EnvironmentalQuality")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
             
             builder.Property(prop => prop.Investments)
                 .HasColumnName("Investments")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.ElectricityExpensives)
                 .HasColumnName("ElectricityExpensives")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Predictive)
                 .HasColumnName("Predictive")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Maintenance)
                 .HasColumnName("Maintenance")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Preventive)
                 .HasColumnName("Preventive")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Corrective)
                 .HasColumnName("Corrective")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Governance)
                 .HasColumnName("Governance")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.EnvironmentalRisks)
                 .HasColumnName("EnvironmentalRisks")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.EnergyUse)
                 .HasColumnName("EnergyUse")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.EnergyGeneration)
                 .HasColumnName("EnergyGeneration")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Technology)
                 .HasColumnName("Technology")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Process)
                 .HasColumnName("Process")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.TechnologyDataCollection)
                 .HasColumnName("TechnologyDataCollection")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Instrumentation)
                 .HasColumnName("Instrumentation")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.PredictiveOperation)
                 .HasColumnName("PredictiveOperation")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Operation_Work)
                 .HasColumnName("Operation_Work")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.AvailabilityOfRepairPersonnel)
                 .HasColumnName("AvailabilityOfRepairPersonnel")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.OperationSensitivity)
                 .HasColumnName("OperationSensitivity")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.MeanTimeBetweenFailures)
                 .HasColumnName("MeanTimeBetweenFailures")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.WorkLoad)
                 .HasColumnName("WorkLoad")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Activities)
                 .HasColumnName("Activities")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.AverageRepairTime)
                 .HasColumnName("AverageRepairTime")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.AvailabilityOfRequiredParts)
                 .HasColumnName("AvailabilityOfRequiredParts")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.SkillLevels)
                 .HasColumnName("SkillLevels")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.ManagementStrategy)
                 .HasColumnName("ManagementStrategy")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Toxicity)
                 .HasColumnName("Toxicity")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Solubility)
                 .HasColumnName("Solubility")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.No_Renewable)
                 .HasColumnName("No_Renewable")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.Renewable)
                 .HasColumnName("Renewable")
-                .HasColumnType("numeric");
+                .HasColumnType("varchar");
             
             builder.Property(prop => prop.Ultima_atualizacao)
                 .HasColumnName("Ultima_atualizacao")
