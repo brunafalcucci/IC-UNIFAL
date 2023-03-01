@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import NavBar from './NavBar';
+import axios from 'axios';
+
+
 
 function Formulario() {
   const [availabilityOfRepairPersonnel, setAvailabilityOfRepairPersonnel] = useState('');
@@ -26,7 +29,7 @@ function Formulario() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`
+    axios.post(`/api/CriticalityIndex/InsertCriticalityIndex , 
       Availability of repair personnel: ${availabilityOfRepairPersonnel}\n
       Operation Sensitivity: ${operationSensitivity}\n
       Work Load: ${workLoad}\n
@@ -59,39 +62,34 @@ function Formulario() {
 
     <form onSubmit={handleSubmit}>
         <WrapFormNav> 
-        <WrapTotalForm> 
-        <TitleForm> CRITICALITY INDEX FORM </TitleForm>
-        <WrapLabels> 
+        <WrapTotalForm>
+        <TitleForm> Environmental Quality </TitleForm>
+        <WrapLabels>
+
       <label>
-        Availability of repair personnel:
-        <input type="text" value={availabilityOfRepairPersonnel} onChange={(event) => setAvailabilityOfRepairPersonnel(event.target.value)} />
+        Toxity: 
+        <input type="text" value={toxity} onChange={(event) => setToxity(event.target.value)} />
       </label>
       
       <label>
-        Operation Sensitivity:
-        <input type="text" value={operationSensitivity} onChange={(event) => setOperationSensitivity(event.target.value)} />
+        Solubility:
+        <input type="text" value={solubility} onChange={(event) => setSolubility(event.target.value)} />
       </label>
       
       <label>
-        Work Load:
-        <input type="text" value={workLoad} onChange={(event) => setWorkLoad(event.target.value)} />
+        No-Renewable:
+        <input type="text" value={noRenewable} onChange={(event) => setNoRenewable(event.target.value)} />
       </label>
       
       <label>
-        Mean time between failures:
-        <input type="text" value={meanTimeBetweenFailures} onChange={(event) => setMeanTimeBetweenFailures(event.target.value)} />
+        Renewable:
+        <input type="text" value={renewable} onChange={(event) => setRenewable(event.target.value)} />
       </label>
-      
-      <label>
-        Average repair time:
-        <input type="text" value={averageRepairTime} onChange={(event) => setAverageRepairTime(event.target.value)} />
-      </label>
-      
-      <label>
-        Availability of required parts:
-        <input type="text" value={availabilityOfRequiredParts} onChange={(event) => setAvailabilityOfRequiredParts(event.target.value)} />
-      </label>
-      
+   
+        </WrapLabels>
+        <TitleForm> Costs Management </TitleForm>
+        <WrapLabels>
+
       <label>
         Energy Generation:
         <input type="text" value={energyGeneration} onChange={(event) => setEnergygeneration(event.target.value)} />
@@ -106,68 +104,80 @@ function Formulario() {
         Process:
         <input type="text" value={process} onChange={(event) => setProcess(event.target.value)} />
       </label>
-      
+
       <label>
-       Technology Data Collection:
+        Electrcity Expensives:
+        <input type="text" value={electrcityExpensives} onChange={(event) => setElectrcityExpensives(event.target.value)} />
+      </label>
+
+        </WrapLabels>
+        <TitleForm> Industrial Management </TitleForm>
+        <WrapLabels>
+
+      <label>
+        Technology Data Collection:
         <input type="text" value={technologyDataCollection} onChange={(event) => setTechnologyDataCollection(event.target.value)} />
       </label>
-      
+
       <label>
-      Instrumentation:
+        Instrumentation:
         <input type="text" value={instrumentation} onChange={(event) => setInstrumentation(event.target.value)} />
       </label>
       
       <label>
-      Predictive Operation:
+        Predictive Operation:
         <input type="text" value={predictiveOperation} onChange={(event) => setPredictiveOperation(event.target.value)} />
       </label>
-      
+
       <label>
-      Skill Levels:
-        <input type="text" value={skillLevels} onChange={(event) => setSkillLevels(event.target.value)} />
+        Availability of repair personnel:
+        <input type="text" value={availabilityOfRepairPersonnel} onChange={(event) => setAvailabilityOfRepairPersonnel(event.target.value)} />
       </label>
       
       <label>
-      Management Strategy:
-        <input type="text" value={managementStrategy} onChange={(event) => setManagementStrategy(event.target.value)} />
+        Operation Sensitivity:
+        <input type="text" value={operationSensitivity} onChange={(event) => setOperationSensitivity(event.target.value)} />
       </label>
-      
+
       <label>
-       Toxity : 
-        <input type="text" value={toxity} onChange={(event) => setToxity(event.target.value)} />
+        Mean time between failures:
+        <input type="text" value={meanTimeBetweenFailures} onChange={(event) => setMeanTimeBetweenFailures(event.target.value)} />
       </label>
-      
+
       <label>
-      Solubility:
-        <input type="text" value={solubility} onChange={(event) => setSolubility(event.target.value)} />
+        Work Load:
+        <input type="text" value={workLoad} onChange={(event) => setWorkLoad(event.target.value)} />
       </label>
-      
+
       <label>
-       No-Renewable:
-        <input type="text" value={noRenewable} onChange={(event) => setNoRenewable(event.target.value)} />
+        Average repair time:
+        <input type="text" value={averageRepairTime} onChange={(event) => setAverageRepairTime(event.target.value)} />
       </label>
-      
+
       <label>
-      Renewable:
-        <input type="text" value={renewable} onChange={(event) => setRenewable(event.target.value)} />
+        Availability of required parts:
+        <input type="text" value={availabilityOfRequiredParts} onChange={(event) => setAvailabilityOfRequiredParts(event.target.value)} />
       </label>
-      
+
       <label>
-      Corrective:
+        Corrective:
         <input type="text" value={corrective} onChange={(event) => setCorrective(event.target.value)} />
       </label>
       
       <label>
-      Electrcity Expensives:
-        <input type="text" value={electrcityExpensives} onChange={(event) => setElectrcityExpensives(event.target.value)} />
+        Skill Levels:
+        <input type="text" value={skillLevels} onChange={(event) => setSkillLevels(event.target.value)} />
       </label>
       
+      <label>
+        Management Strategy:
+        <input type="text" value={managementStrategy} onChange={(event) => setManagementStrategy(event.target.value)} />
+      </label>
 
-      
-      </WrapLabels>
-      <button type="submit">Submit</button>
-      </WrapTotalForm> 
-      </WrapFormNav>
+        </WrapLabels>
+        <button type="submit">Submit</button>
+        </WrapTotalForm> 
+        </WrapFormNav>
     </form>
         </FormWrapper>
     </Main>
@@ -178,10 +188,12 @@ const Main = styled.div`
 display :flex;
 `
  const TitleForm = styled.h1`
-    color: green; 
+    color: green;
+    text-align: center;
  `
 
  const WrapLabels = styled.div` 
+ 
  text-align: center;
  height: 100%;
  width: 0 auto;
@@ -213,8 +225,9 @@ input{
     border-radius: 10px;
     box-shadow: 0px 0px 1px 1px #eedddd; 
     &:focus{
-        border: 4px solid #1ac24c;
+        outline: 2.5px solid #1ac24c;
     }
+     
 }
 
 button{

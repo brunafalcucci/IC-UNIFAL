@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../img/LOGO-IC.png'
+
+
 const NavBar = () => {
   return (
     <WrapSide>  
@@ -34,9 +36,12 @@ button {
 margin: 10%;
 border: 2px solid #525250;
 border-radius: 10px;
-font-size: clamp(0.5rem, 15vw, 1rem);
+font-size: 15px; 
 background-color: #D4F8B9;
 box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+@media (max-width: 40em){
+font-size: 8px;
+}
 
 }
 
