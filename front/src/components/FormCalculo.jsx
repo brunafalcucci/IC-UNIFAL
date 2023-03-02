@@ -26,6 +26,9 @@ function Formulario() {
   const [renewable, setRenewable] = useState('');
   const [corrective, setCorrective] = useState('');
   const [electrcityExpensives, setElectrcityExpensives] = useState('');
+  const [industrySector, setIndustrySector] = useState('');
+  const [industryName, setIndustryName] = useState('');
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,7 +53,8 @@ function Formulario() {
       Renewable: ${renewable} \n
       Corrective: ${corrective} \n
       Electrcity Expensives: ${electrcityExpensives} \n
-
+      Industry Sector: ${industrySector} \n
+      Industry Name: ${industryName} \n
 
     `);
   };
@@ -63,6 +67,17 @@ function Formulario() {
     <form onSubmit={handleSubmit}>
         <WrapFormNav> 
          <WrapTotalForm>
+         <TitleForm> Industry Data  </TitleForm>
+         <WrapLabels>
+         <label>
+        Industry Sector: 
+        <input type="text" value={industrySector} onChange={(event) => setIndustrySector(event.target.value)} />
+      </label>
+      <label>
+        Industry Name: 
+        <input type="text" value={industryName} onChange={(event) => setIndustryName(event.target.value)} />
+      </label>
+         </WrapLabels>
         <TitleForm> Environmental Quality </TitleForm>
         <WrapLabels>
 
