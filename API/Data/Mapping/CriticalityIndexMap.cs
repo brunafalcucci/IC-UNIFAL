@@ -18,11 +18,15 @@ namespace Data.Mapping
                 .HasColumnName("Id")
                 .HasColumnType("int8");
             
-            builder.Property(prop => prop.City)
-                .HasMaxLength(100)
+            builder.Property(prop => prop.IndustrialSector)
                 .IsRequired()
-                .HasColumnName("City")
-                .HasColumnType("varchar(100)");
+                .HasColumnName("IndustrialSector")
+                .HasColumnType("varchar");
+
+            builder.Property(prop => prop.IndustryName)
+                .IsRequired()
+                .HasColumnName("IndustryName")
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.CriticalityIndexValue)
                 .HasColumnName("CriticalityIndexValue")

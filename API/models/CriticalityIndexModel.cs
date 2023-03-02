@@ -11,9 +11,13 @@ namespace Application.Models
         [Column(TypeName = "int8")]
         public int? Id { get; set; }
         
-        [Column(TypeName = "varchar(100)")]
+        [Column(TypeName = "varchar")]
         [Required]
-        public string? City { get; set; }
+        public string? IndustrialSector { get; set; }
+
+        [Column(TypeName = "varchar")]
+        [Required]
+        public string? IndustryName { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? CriticalityIndexValue { get; set; }
