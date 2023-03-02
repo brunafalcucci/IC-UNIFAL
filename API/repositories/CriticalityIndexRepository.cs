@@ -12,14 +12,14 @@ namespace Application.Repositories
             _applicationDb = context;
         }
 
-        public bool InsertCriticalityIndex(CriticalityIndex criticalityIndex)
+        public CriticalityIndex InsertCriticalityIndex(CriticalityIndex criticalityIndex)
         {
             try
             {
-                _applicationDb.CriticalityIndex.Add(criticalityIndex);
+                CriticalityIndex criticalityIndexDatabase = _applicationDb.CriticalityIndex.Add(criticalityIndex).Entity;
                 _applicationDb.SaveChanges();
 
-                return true;
+                return criticalityIndexDatabase;
             } catch (Exception)
             {
                 throw;

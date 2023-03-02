@@ -1,3 +1,4 @@
+using System;
 using Application.Models;
 using Application.Repositories;
 using Microsoft.AspNetCore.Cors;
@@ -21,10 +22,24 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult<bool> InsertCriticalityIndex([FromBody] CriticalityIndex criticalityIndex)
+        public ActionResult<CriticalityIndex> InsertCriticalityIndex([FromBody] CriticalityIndex criticalityIndex)
         {
             try
             {
+                criticalityIndex.Operation_Work = CalculateOperation(Convert.ToDouble(criticalityIndex.OperationSensitivity), Convert.ToDouble(criticalityIndex.MeanTimeBetweenFailures), Convert.ToDouble(criticalityIndex.AvailabilityOfRepairPersonnel), Convert.ToDouble(criticalityIndex.WorkLoad));
+                criticalityIndex.Activities = CalculateActivities(Convert.ToDouble(criticalityIndex.AvailabilityOfRequiredParts), Convert.ToDouble(criticalityIndex.AverageRepairTime));
+                criticalityIndex.Investiments = CalculateInvestiment(Convert.ToDouble(criticalityIndex.EnergyGeneration), Convert.ToDouble(criticalityIndex.Process), Convert.ToDouble(criticalityIndex.Technology));
+                criticalityIndex.Predictive = CalculatePredictive(Convert.ToDouble(criticalityIndex.PredictiveOperation), Convert.ToDouble(criticalityIndex.TechnologyDataCollection), Convert.ToDouble(criticalityIndex.Instrumentation))
+                criticalityIndex.Preventive = CalculatePreventive(Convert.ToDouble(criticalityIndex.Operation_Work.Split(" ")[0]), Convert.ToDouble(criticalityIndex.Activities.Split(" ")[0]));
+                criticalityIndex.Governance = CalculateGovernance(Convert.ToDouble(criticalityIndex.SkillLevels), Convert.ToDouble(criticalityIndex.ManagementStrategy));
+                criticalityIndex.EnvironmentalRisks = CalculateEnvironmentalRisk(Convert.ToDouble(criticalityIndex.Solubility), Convert.ToDouble(criticalityIndex.Toxicity));
+                criticalityIndex.EnergyUse = CalculateEnergyUse(Convert.ToDouble(criticalityIndex.Renewable), Convert.ToDouble(criticalityIndex.No_Renewable));
+                criticalityIndex.Maintenance = CalculateMaintenance(Convert.ToDouble(criticalityIndex.Corrective), Convert.ToDouble(criticalityIndex.Preventive.Split(" ")[0]), Convert.ToDouble(criticalityIndex.Predictive.Split(" ")[0]));
+                criticalityIndex.CostsManagement = CalculateCostsManagement(Convert.ToDouble(criticalityIndex.ElectricityExpensives), Convert.ToDouble(criticalityIndex.Investments.Split(" ")[0]));
+                criticalityIndex.IndustrialManagement = CalculateIndustrialManagement(Convert.ToDouble(criticalityIndex.Governance.Split(" ")[0]), Convert.ToDouble(criticalityIndex.Maintenance.Split(" ")[0]));
+                criticalityIndex.EnvironmentalQuality = CalculateEnvironmentalQuality(Convert.ToDouble(criticalityIndex.EnvironmentalRisks.Split(" ")[0]), Convert.ToDouble(criticalityIndex.EnergyUse.Split(" ")[0]));
+                criticalityIndex.CriticalityIndexValue = CalculateCriticalityIndex(Convert.ToDouble(criticalityIndex.EnvironmentalQuality.Split(" ")[0]), Convert.ToDouble(criticalityIndex.CostsManagement.Split(" ")[0]), Convert.ToDouble(criticalityIndex.IndustrialManagement.Split(" ")[0]));
+
                 return _CriticalityIndexRepository.InsertCriticalityIndex(criticalityIndex);
             }
             catch (Exception ex)
