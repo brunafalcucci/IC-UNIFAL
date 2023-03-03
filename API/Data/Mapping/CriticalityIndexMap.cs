@@ -160,8 +160,8 @@ namespace Data.Mapping
                 .HasColumnName("Renewable")
                 .HasColumnType("varchar");
             
-            builder.Property(prop => prop.Ultima_atualizacao)
-                .HasColumnName("Ultima_atualizacao")
+            builder.Property(prop => prop.Ultima_Atualizacao)
+                .HasColumnName("Ultima_Atualizacao")
                 .HasColumnType("timestamp(0) without time zone")
                 .HasDefaultValueSql("now()");
         }
