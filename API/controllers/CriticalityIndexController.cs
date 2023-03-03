@@ -48,19 +48,6 @@ namespace Application.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult<bool> DeleteCriticalityIndex(int id)
-        {
-            try
-            {
-                return _CriticalityIndexRepository.DeleteCriticalityIndex(id);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
         [HttpGet("{id}")]
         public ActionResult<CriticalityIndex> GetCriticalityIndexById(int id)
         {
@@ -74,12 +61,12 @@ namespace Application.Controllers
             }
         }
 
-        [HttpGet("{city}")]
-        public ActionResult<List<CriticalityIndex>> GetCriticalityIndexByCity(string city)
+        [HttpGet("{industryName}")]
+        public ActionResult<List<CriticalityIndex>> GetCriticalityIndexByIndustry(string industryName)
         {
             try
             {
-                return _CriticalityIndexRepository.GetCriticalityIndexByCity(city);
+                return _CriticalityIndexRepository.GetCriticalityIndexByIndustry(industryName);
             }
             catch (Exception ex)
             {

@@ -25,20 +25,6 @@ namespace Application.Repositories
                 throw;
             }
         }
-        
-        public bool DeleteCriticalityIndex(int id)
-        {
-            try
-            {
-                _applicationDb.CriticalityIndex.Remove(GetCriticalityIndexById(id));
-                _applicationDb.SaveChanges();
-
-                return true;
-            } catch (Exception)
-            {
-                throw;
-            }
-        }
 
         public CriticalityIndex GetCriticalityIndexById(int id)
         {
@@ -53,11 +39,11 @@ namespace Application.Repositories
             }
         }
 
-        public List<CriticalityIndex> GetCriticalityIndexByCity(string city)
+        public List<CriticalityIndex> GetCriticalityIndexByIndustry(string industryName)
         {
             try
             {
-                List<CriticalityIndex> criticalityIndex = _applicationDb.CriticalityIndex.Where(el => el.City == city).Take(5).ToList()!;
+                List<CriticalityIndex> criticalityIndex = _applicationDb.CriticalityIndex.Where(el => el.IndustryName == industryName).OrderByAsc(el => el.Ultima_Atualizacao).Take(5).ToList()!;
 
                 return criticalityIndex;
             } catch (Exception)
@@ -70,8 +56,7 @@ namespace Application.Repositories
     public interface ICriticalityIndexRepository
     {
         bool InsertCriticalityIndex(CriticalityIndex criticalityIndex);
-        bool DeleteCriticalityIndex(int id);
         CriticalityIndex GetCriticalityIndexById(int id);
-        List<CriticalityIndex> GetCriticalityIndexByCity(string city);
+        List<CriticalityIndex> GetCriticalityIndexByIndustry(string industryName);
     }
 }

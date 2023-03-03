@@ -119,6 +119,6 @@ namespace Application.Models
         public string? Renewable { get; set; }
         
         [Column(TypeName = "timestamp(0)")]
-        public DateTime Ultima_atualizacao { get; set; }
+        public DateTime Ultima_Atualizacao { get; set; }
     }
 }
