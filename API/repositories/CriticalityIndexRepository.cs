@@ -43,7 +43,7 @@ namespace Application.Repositories
         {
             try
             {
-                List<CriticalityIndex> criticalityIndex = _applicationDb.CriticalityIndex.Where(el => el.IndustryName == industryName).OrderByAsc(el => el.Ultima_Atualizacao).Take(5).ToList()!;
+                List<CriticalityIndex> criticalityIndex = _applicationDb.CriticalityIndex.Where(el => el.IndustryName == industryName).OrderByDescending(el => el.Ultima_Atualizacao).Take(5).ToList()!;
 
                 return criticalityIndex;
             } catch (Exception)
@@ -55,7 +55,7 @@ namespace Application.Repositories
 
     public interface ICriticalityIndexRepository
     {
-        bool InsertCriticalityIndex(CriticalityIndex criticalityIndex);
+        CriticalityIndex InsertCriticalityIndex(CriticalityIndex criticalityIndex);
         CriticalityIndex GetCriticalityIndexById(int id);
         List<CriticalityIndex> GetCriticalityIndexByIndustry(string industryName);
     }

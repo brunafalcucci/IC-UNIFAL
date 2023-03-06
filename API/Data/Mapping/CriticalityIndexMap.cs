@@ -44,8 +44,8 @@ namespace Data.Mapping
                 .HasColumnName("EnvironmentalQuality")
                 .HasColumnType("varchar");
             
-            builder.Property(prop => prop.Investments)
-                .HasColumnName("Investments")
+            builder.Property(prop => prop.Investiments)
+                .HasColumnName("Investiments")
                 .HasColumnType("varchar");
 
             builder.Property(prop => prop.ElectricityExpensives)

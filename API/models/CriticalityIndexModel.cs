@@ -32,7 +32,7 @@ namespace Application.Models
         public string? EnvironmentalQuality { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? Investments { get; set; }
+        public string? Investiments { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? ElectricityExpensives { get; set; }

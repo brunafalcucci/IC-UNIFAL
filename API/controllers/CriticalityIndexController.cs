@@ -29,13 +29,13 @@ namespace Application.Controllers
                 criticalityIndex.Operation_Work = CalculateOperation(Convert.ToDouble(criticalityIndex.OperationSensitivity), Convert.ToDouble(criticalityIndex.MeanTimeBetweenFailures), Convert.ToDouble(criticalityIndex.AvailabilityOfRepairPersonnel), Convert.ToDouble(criticalityIndex.WorkLoad));
                 criticalityIndex.Activities = CalculateActivities(Convert.ToDouble(criticalityIndex.AvailabilityOfRequiredParts), Convert.ToDouble(criticalityIndex.AverageRepairTime));
                 criticalityIndex.Investiments = CalculateInvestiment(Convert.ToDouble(criticalityIndex.EnergyGeneration), Convert.ToDouble(criticalityIndex.Process), Convert.ToDouble(criticalityIndex.Technology));
-                criticalityIndex.Predictive = CalculatePredictive(Convert.ToDouble(criticalityIndex.PredictiveOperation), Convert.ToDouble(criticalityIndex.TechnologyDataCollection), Convert.ToDouble(criticalityIndex.Instrumentation))
+                criticalityIndex.Predictive = CalculatePredictive(Convert.ToDouble(criticalityIndex.PredictiveOperation), Convert.ToDouble(criticalityIndex.TechnologyDataCollection), Convert.ToDouble(criticalityIndex.Instrumentation));
                 criticalityIndex.Preventive = CalculatePreventive(Convert.ToDouble(criticalityIndex.Operation_Work.Split(" ")[0]), Convert.ToDouble(criticalityIndex.Activities.Split(" ")[0]));
                 criticalityIndex.Governance = CalculateGovernance(Convert.ToDouble(criticalityIndex.SkillLevels), Convert.ToDouble(criticalityIndex.ManagementStrategy));
                 criticalityIndex.EnvironmentalRisks = CalculateEnvironmentalRisk(Convert.ToDouble(criticalityIndex.Solubility), Convert.ToDouble(criticalityIndex.Toxicity));
                 criticalityIndex.EnergyUse = CalculateEnergyUse(Convert.ToDouble(criticalityIndex.Renewable), Convert.ToDouble(criticalityIndex.No_Renewable));
                 criticalityIndex.Maintenance = CalculateMaintenance(Convert.ToDouble(criticalityIndex.Corrective), Convert.ToDouble(criticalityIndex.Preventive.Split(" ")[0]), Convert.ToDouble(criticalityIndex.Predictive.Split(" ")[0]));
-                criticalityIndex.CostsManagement = CalculateCostsManagement(Convert.ToDouble(criticalityIndex.ElectricityExpensives), Convert.ToDouble(criticalityIndex.Investments.Split(" ")[0]));
+                criticalityIndex.CostsManagement = CalculateCostsManagement(Convert.ToDouble(criticalityIndex.ElectricityExpensives), Convert.ToDouble(criticalityIndex.Investiments.Split(" ")[0]));
                 criticalityIndex.IndustrialManagement = CalculateIndustrialManagement(Convert.ToDouble(criticalityIndex.Governance.Split(" ")[0]), Convert.ToDouble(criticalityIndex.Maintenance.Split(" ")[0]));
                 criticalityIndex.EnvironmentalQuality = CalculateEnvironmentalQuality(Convert.ToDouble(criticalityIndex.EnvironmentalRisks.Split(" ")[0]), Convert.ToDouble(criticalityIndex.EnergyUse.Split(" ")[0]));
                 criticalityIndex.CriticalityIndexValue = CalculateCriticalityIndex(Convert.ToDouble(criticalityIndex.EnvironmentalQuality.Split(" ")[0]), Convert.ToDouble(criticalityIndex.CostsManagement.Split(" ")[0]), Convert.ToDouble(criticalityIndex.IndustrialManagement.Split(" ")[0]));
@@ -432,7 +432,7 @@ namespace Application.Controllers
             }
         }
 
-        public double CalculateCostsManagement(double electricityCostsValue, double investimentValue)
+        public string CalculateCostsManagement(double electricityCostsValue, double investimentValue)
         {
             LinguisticVariable electricityCosts = new( "ElectricityCosts", 0, 100 );
             electricityCosts.AddLabel( new FuzzySet( "VeryLow", new TrapezoidalFunction(0, 0, 10, 30) ) );
@@ -549,7 +549,7 @@ namespace Application.Controllers
             governance.AddLabel( new FuzzySet( "VeryBig", new TrapezoidalFunction((float)17.5, (float)22.5, 25, 25) ) );
 
             Database fuzzyDB = new();
-            fuzzyDB.AddVariable( SkillLevel );
+            fuzzyDB.AddVariable( skillLevel );
             fuzzyDB.AddVariable( managementStrategy );
             fuzzyDB.AddVariable( governance );
 
@@ -618,7 +618,7 @@ namespace Application.Controllers
             }
         }
 
-        public string CalculateOperation(double sensitiveOperationValue, double meanTimeBetweenFailuresValue, double availabilityOfRepairPersonneValue double workLoadValue)
+        public string CalculateOperation(double sensitiveOperationValue, double meanTimeBetweenFailuresValue, double availabilityOfRepairPersonneValue, double workLoadValue)
         {
             LinguisticVariable sensitiveOperation = new( "SensitiveOperation", 0, 24 );
             sensitiveOperation.AddLabel( new FuzzySet( "Low", new TrapezoidalFunction(0, 0, 6, 12) ) );
@@ -779,7 +779,7 @@ namespace Application.Controllers
             }
         }
 
-        public double CalculateActivities(double availabilityOfRequiredPartsValue, double averageRepairTimeValue)
+        public string CalculateActivities(double availabilityOfRequiredPartsValue, double averageRepairTimeValue)
         {
             LinguisticVariable availabilityOfRequiredParts = new( "AvailabilityOfRequiredParts", 0, 24 );
             availabilityOfRequiredParts.AddLabel( new FuzzySet( "VeryLow", new TrapezoidalFunction(0, 0, (float)2.4, (float)7.2) ) );
@@ -872,7 +872,7 @@ namespace Application.Controllers
             }
         }
 
-        public double CalculatePreventive(double operationValue, double equipmentActivitiesValue)
+        public string CalculatePreventive(double operationValue, double equipmentActivitiesValue)
         {
             LinguisticVariable operation = new( "Operation", 0, 10 );
             operation.AddLabel( new FuzzySet( "VeryLow", new TrapezoidalFunction(0, 0, 1, 3) ) );
@@ -965,7 +965,7 @@ namespace Application.Controllers
             }
         }
 
-        public string CalculatePredictive(double predictiveOperationValue, double technologyDataCollectionValue, double instrumetationValue)
+        public string CalculatePredictive(double predictiveOperationValue, double technologyDataCollectionValue, double instrumentationValue)
         {
             LinguisticVariable predictiveOperation = new( "PredictiveOperation", 0, 12 );
             predictiveOperation.AddLabel( new FuzzySet( "Low", new TrapezoidalFunction(0, 0, 3, 6) ) );
@@ -977,12 +977,12 @@ namespace Application.Controllers
             technologyDataCollection.AddLabel( new FuzzySet( "Medium", new TrapezoidalFunction(3, 6, 9) ) );
             technologyDataCollection.AddLabel( new FuzzySet( "High", new TrapezoidalFunction(6, 9, 12, 12) ) );
 
-            LinguisticVariable Instrumentation = new( "Instrumentation", 0, 100 );
+            LinguisticVariable instrumentation = new( "Instrumentation", 0, 100 );
             instrumentation.AddLabel( new FuzzySet( "Low", new TrapezoidalFunction(0, 0, 25, 50) ) );
             instrumentation.AddLabel( new FuzzySet( "Medium", new TrapezoidalFunction(25, 50, 75) ) );
             instrumentation.AddLabel( new FuzzySet( "High", new TrapezoidalFunction(50, 75, 100, 100) ) );
 
-            LinguisticVariable Predictive = new( "Predictive", 0, 10 );
+            LinguisticVariable predictive = new( "Predictive", 0, 10 );
             predictive.AddLabel( new FuzzySet( "VeryLimited", new TrapezoidalFunction(0, 0, 1, 3) ) );
             predictive.AddLabel( new FuzzySet( "Limited", new TrapezoidalFunction(1, 3, 5) ) );
             predictive.AddLabel( new FuzzySet( "Medium", new TrapezoidalFunction(3, 5, 7) ) );
@@ -1067,7 +1067,7 @@ namespace Application.Controllers
         public string CalculateMaintenance(double correctiveValue, double preventiveValue, double predictiveValue)
         {
             LinguisticVariable corrective = new( "Corrective", 0, 30 );
-            corrective.AddLabel( new FuzzySet( "Low", new TrapezoidalFunction(0, 0, (float)7.5, 15 ) );
+            corrective.AddLabel( new FuzzySet( "Low", new TrapezoidalFunction(0, 0, (float)7.5, 15 ) ) );
             corrective.AddLabel( new FuzzySet( "Middle", new TrapezoidalFunction((float)7.5, 15, (float)22.5) ) );
             corrective.AddLabel( new FuzzySet( "High", new TrapezoidalFunction(15, (float)22.5, 30, 30) ) );
 
@@ -1163,7 +1163,7 @@ namespace Application.Controllers
             }
         }
 
-        public double CalculateIndustrialManagement(double governanceValue, double maintenanceValue)
+        public string CalculateIndustrialManagement(double governanceValue, double maintenanceValue)
         {
             LinguisticVariable governance = new( "Governance", 0, 25 );
             governance.AddLabel( new FuzzySet( "VeryBad", new TrapezoidalFunction(0, 0, (float)2.5, (float)7.5) ) );
