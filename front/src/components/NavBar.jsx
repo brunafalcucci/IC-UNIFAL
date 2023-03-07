@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../img/LOGO-IC.png'
+import { Link } from 'react-router-dom'
 
 
 const NavBar = () => {
@@ -8,8 +9,8 @@ const NavBar = () => {
     <WrapSide>  
       <img src={logo} alt="" />
       <WrapButtons> 
-      <button> CRITICALITY INDEX </button>
-      <button> EFFICIENCY ENERGETIC </button>
+      <Link to='/form'> <button> CRITICALITY INDEX </button> </Link>
+     <Link to='/efficiency'> <button> EFFICIENCY ENERGETIC </button> </Link>
       <button> ALGUMA COISA </button>
       <button> ALGUMA COISA </button>
       <button> ALGUMA COISA </button>
