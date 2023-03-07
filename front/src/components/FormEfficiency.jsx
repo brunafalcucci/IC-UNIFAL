@@ -12,7 +12,7 @@ function Formulario() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`/api/CriticalityIndex/InsertCriticalityIndex, 
+    axios.post(`/api, 
       Industry Sector: ${industrySector} \n
       Industry Name: ${industryName} \n
 
