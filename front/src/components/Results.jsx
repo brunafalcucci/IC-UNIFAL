@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import NavBar from './NavBar'
-import legenda from '../img/legenda.png'
 
 const Results = () => {
   return (
@@ -10,9 +9,9 @@ const Results = () => {
       <TotalDiv> 
          <WrapTitle> OVERALL RESULTS  </WrapTitle>
 
-         <TesteJoao> 
+         <WrapImgeLevel> 
         
-        
+        <WrapperLevels> 
         <WrapLevel1> 
           <TitleLevel> Level 1 </TitleLevel>
           <WrapDiv> Operation / Work </WrapDiv>
@@ -37,13 +36,27 @@ const Results = () => {
           <WrapDiv> Environmental Quality </WrapDiv>
         </WrapLevel3>  
 
+
         <WrapLevel4> 
         <TitleLevel> Level 4 </TitleLevel>
           <WrapDiv> CRITICALITY INDEX </WrapDiv>
-        </WrapLevel4>  
 
-         <img src={legenda} alt="" />
-        </TesteJoao>
+        </WrapLevel4>  
+         
+        <WrapLevel5> 
+        <TitleLevel> LEGENDA </TitleLevel>
+          <WrapLegenda>  
+          <Legenda> CRITICAL </Legenda>
+          <Legenda> POTENTIALLY CRITICAL </Legenda>
+          <Legenda> ACCEPTABLE </Legenda>
+          <Legenda> POTENTIALLY UNCRITICAL </Legenda>
+          <Legenda> UNCRITICAL </Legenda>
+          </WrapLegenda>  
+          </WrapLevel5>  
+
+        </WrapperLevels>
+
+        </WrapImgeLevel>
 
          </TotalDiv>
     </WrapResults>
@@ -56,7 +69,6 @@ display: flex;
 
 const TotalDiv = styled.div`
 width: 100%;
-height: 100vh;
 `
 const WrapTitle = styled.h1` 
   font-size: 40px;
@@ -68,41 +80,100 @@ const WrapLevel1 = styled.div`
 border: 0;
 box-shadow: 0px 0px 5px 1px #DDD;
 width: 60%;
+margin-top: 1rem;
 `
 
 const WrapLevel2 = styled.div`
 border: 0;
 box-shadow: 0px 0px 5px 1px #DDD;
 width: 60%;
+margin-top: 1rem;
 `
 const WrapLevel3 = styled.div`
 border: 0;
 box-shadow: 0px 0px 5px 1px #DDD;
 width: 60%;
+margin-top: 1rem;
 `
 
 const WrapLevel4 = styled.div`
 border: 0;
 box-shadow: 0px 0px 5px 1px #DDD;
 width: 60%;
+margin-top: 1rem;
 `
+const WrapLevel5 = styled.div`
+border: 0;
+box-shadow: 0px 0px 5px 1px #DDD;
+width: 60%;
+margin-top: 1rem;
+display: flex;
+flex-direction:column;
+justify-content:center;
+align-items: center;
+`
+
+const WrapLegenda = styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 3rem;
+padding-bottom:2rem;
+
+`
+
+const Legenda = styled.div`
+position: relative;
+&::after{
+  content: '';
+  position: absolute;
+  left:-2rem;
+  width:1.5rem;
+  aspect-ratio:  1/1;
+  background-color:red;
+  border-radius:99999999vw;
+}
+&:nth-of-type(2){
+  &::after{
+    background-color:blue;
+  }
+}
+&:nth-of-type(3){
+  &::after{
+    background-color:green;
+  }
+}
+&:nth-of-type(4){
+  &::after{
+    background-color:blue;
+  }
+}
+&:nth-of-type(5){
+  &::after{
+    background-color:blue;
+  }
+}
+`
+
 const TitleLevel = styled.h2`
+text-align: center;
+color: green;
 `
 
 const WrapDiv = styled.div`
   border: 1px solid grey;
-  width: 10%;
+  width: 15%;
   border-radius: 10px;
+  display: flex;
 `
-const TesteJoao = styled.div`
+const WrapImgeLevel = styled.div`
 display: flex; 
 flex-direction: column;
-img{
-  width: 250px;
-  margin-left: auto;
-  @media (max-width: 40em){
-     width: auto;
-  }
-}
+`
+
+const WrapperLevels = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+
 `
 export default Results
