@@ -248,9 +248,10 @@ input{
 button{
     margin: 1rem;
     border: 2px solid green;
-    border-radius: 10px;
-    width: 25%;
-    height: 40px;
+    border-radius: 15px;
+    width: 30%;
+    height: 60px;
+    font-size: 20px;
     &:hover{
         background-color: green !important;
         color: white; 
