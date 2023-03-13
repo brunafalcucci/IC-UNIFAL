@@ -14,12 +14,15 @@ const Results = () => {
         <WrapperLevels> 
         <WrapLevel1> 
           <TitleLevel> Level 1 </TitleLevel>
+          <WrapResult> 
           <WrapDiv> Operation / Work </WrapDiv>
           <WrapDiv> Activities </WrapDiv>
+          </WrapResult>
         </WrapLevel1>  
 
         <WrapLevel2> 
         <TitleLevel> Level 2 </TitleLevel>
+         <WrapResult> 
           <WrapDiv> Investments </WrapDiv>
           <WrapDiv> Energy Use </WrapDiv>
           <WrapDiv> Predictive </WrapDiv>
@@ -27,20 +30,24 @@ const Results = () => {
           <WrapDiv> Preventive </WrapDiv>
           <WrapDiv> Governance </WrapDiv>
           <WrapDiv> Enviromental Risk  </WrapDiv>
+          </WrapResult> 
         </WrapLevel2>  
 
         <WrapLevel3> 
         <TitleLevel> Level 3 </TitleLevel>
+        <WrapResult> 
           <WrapDiv> Costs Management </WrapDiv>
           <WrapDiv> Industrial Management </WrapDiv>
           <WrapDiv> Environmental Quality </WrapDiv>
+          </WrapResult> 
         </WrapLevel3>  
 
 
         <WrapLevel4> 
         <TitleLevel> Level 4 </TitleLevel>
+        <WrapResult> 
           <WrapDiv> CRITICALITY INDEX </WrapDiv>
-
+          </WrapResult> 
         </WrapLevel4>  
          
         <WrapLevel5> 
@@ -134,22 +141,22 @@ position: relative;
 }
 &:nth-of-type(2){
   &::after{
-    background-color:blue;
+    background-color: #FF9900;
   }
 }
 &:nth-of-type(3){
   &::after{
-    background-color:green;
+    background-color: #FAFF00;
   }
 }
 &:nth-of-type(4){
   &::after{
-    background-color:blue;
+    background-color: #A4D713;
   }
 }
 &:nth-of-type(5){
   &::after{
-    background-color:blue;
+    background-color: #068E0B;
   }
 }
 `
@@ -163,7 +170,8 @@ const WrapDiv = styled.div`
   border: 1px solid grey;
   width: 15%;
   border-radius: 10px;
-  display: flex;
+ 
+  
 `
 const WrapImgeLevel = styled.div`
 display: flex; 
@@ -175,5 +183,12 @@ display: flex;
 flex-direction: column;
 align-items: center;
 
+`
+
+const WrapResult = styled.div`
+display: flex;
+justify-content: center;
+gap: 2rem;
+margin-bottom: 1rem;
 `
 export default Results

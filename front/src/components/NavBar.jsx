@@ -11,7 +11,7 @@ const NavBar = () => {
       <WrapButtons> 
       <Link to='/form'> <button> CRITICALITY INDEX </button> </Link>
      <Link to='/efficiency'> <button> EFFICIENCY ENERGETIC </button> </Link>
-      <button> ALGUMA COISA </button>
+     <Link to='/results'> <button> RESULTS TEST </button> </Link>
       <button> ALGUMA COISA </button>
       <button> ALGUMA COISA </button>
       </WrapButtons>
