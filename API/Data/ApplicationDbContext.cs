@@ -15,12 +15,14 @@ namespace Application.Context
         }
 
         public DbSet<CriticalityIndex> CriticalityIndex => Set<CriticalityIndex>();
+        public DbSet<ChemicalTreatment> ChemicalTreatment => Set<ChemicalTreatment>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<CriticalityIndex>(new CriticalityIndexMap().Configure);
+            modelBuilder.Entity<ChemicalTreatment>(new ChemicalTreatmentMap().Configure);
         }
     }
 }

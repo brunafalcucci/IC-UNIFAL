@@ -33,6 +33,7 @@ namespace Application
             service.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
             service.AddScoped<ICriticalityIndexRepository, CriticalityIndexRepository>();
+            service.AddScoped<IChemicalTreatmentRepository, ChemicalTreatmentRepository>();
         }
 
         public static void Configure(IApplicationBuilder app, IHostEnvironment env)
