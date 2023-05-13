@@ -59,7 +59,7 @@ namespace Application.Models
         public string? Maintenance { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? WW { get; set; }
+        public string? WhiteWater { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? Oil { get; set; }
@@ -95,7 +95,7 @@ namespace Application.Models
         public string? UseOfMaterialsInRenewableContainers { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? WBS { get; set; }
+        public string? WaterBasedSubstitutes { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? SolutesLevel2 { get; set; }

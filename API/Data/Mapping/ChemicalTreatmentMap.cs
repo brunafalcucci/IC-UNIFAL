@@ -80,8 +80,8 @@ namespace Data.Mapping
                 .HasColumnName("Maintenance")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.WW)
-                .HasColumnName("WW")
+            builder.Property(prop => prop.WhiteWater)
+                .HasColumnName("WhiteWater")
                 .HasColumnType("varchar");
 
             builder.Property(prop => prop.Oil)
@@ -128,8 +128,8 @@ namespace Data.Mapping
                 .HasColumnName("UseOfMaterialsInRenewableContainers")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.WBS)
-                .HasColumnName("WBS")
+            builder.Property(prop => prop.WaterBasedSubstitutes)
+                .HasColumnName("WaterBasedSubstitutes")
                 .HasColumnType("varchar");
 
             builder.Property(prop => prop.SolutesLevel2)
