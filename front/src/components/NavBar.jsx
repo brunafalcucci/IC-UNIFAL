@@ -8,7 +8,7 @@ const NavBar = () => {
       <WrapButtons> 
       <button> CRITICALITY INDEX </button>
       <button> EFFICIENCY ENERGETIC </button>
-      <button> ALGUMA COISA </button>
+      <button> CHEMICAL RESIDUES ENERGY </button>
       <button> ALGUMA COISA </button>
       <button> ALGUMA COISA </button>
       </WrapButtons>

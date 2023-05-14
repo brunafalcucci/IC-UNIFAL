@@ -21,6 +21,12 @@ export function FormResiduosQuimicosEnergia() {
   const [water, setWater] = useState("");
   const [employees, setEmployees] = useState("");
   const [stopper, setStopper] = useState("");
+  const [vaporMinimization, setVaporMinimization] = useState("");
+  const [waters, setWaters] = useState("");
+  const [solvent, setSolvent] = useState("");
+  const [waterBasedSubstitutes, setWaterBasedSubstitutes] = useState("");
+  const [inorganicSolutes, setInorganicSolutes] = useState("");
+  const [solids, setSolids] = useState("");
   
 
   const handleSubmit = (event) => {
@@ -43,6 +49,12 @@ export function FormResiduosQuimicosEnergia() {
     console.log(water);
     console.log(employees);
     console.log(stopper);
+    console.log(vaporMinimization);
+    console.log(waters);
+    console.log(solvent);
+    console.log(waterBasedSubstitutes);
+    console.log(inorganicSolutes);
+    console.log(solids);
   };
 
   return (
@@ -52,7 +64,7 @@ export function FormResiduosQuimicosEnergia() {
         <form onSubmit={handleSubmit}>
           <WrapFormNav>
             <WrapTotalForm>
-              <TitleForm> Chemical residues energy </TitleForm>
+              <TitleForm> CHEMICAL RESIDUES ENERGY </TitleForm>
               <WrapLabels>
                 <label>
                   Destiled Water:
@@ -83,6 +95,7 @@ export function FormResiduosQuimicosEnergia() {
                     value={ink}
                     onChange={(event) => setInk(event.target.value)}
                   >
+                     <option value=""></option>
                     <option value="3,5131">Recycling</option>
                   </select>
                 </label>
@@ -139,6 +152,7 @@ export function FormResiduosQuimicosEnergia() {
                     value={contamination}
                     onChange={(event) => setContamination(event.target.value)}
                   >
+                     <option value=""></option>
                     <option value="3,5215">Parts</option>
                   </select>
                 </label>
@@ -167,7 +181,7 @@ export function FormResiduosQuimicosEnergia() {
                   </select>
                 </label>
                 <label>
-                flocculation:
+                Flocculation:
                   <select
                     value={flocculation}
                     onChange={(event) => setFlocculation(event.target.value)}
@@ -256,6 +270,79 @@ export function FormResiduosQuimicosEnergia() {
                     <option value=""></option>
                     <option value="3,8113">Solvents</option>
                     <option value="3,8115">Parts Wash</option>
+                  </select>
+                </label>
+                <label>
+                Vapor Minimization:
+                  <select
+                    value={vaporMinimization}
+                    onChange={(event) => setVaporMinimization(event.target.value)}
+                  >
+                    <option value=""></option>
+                    <option value="3,8121">Decrease</option>
+                    <option value="3,8126">Recovery</option>
+                    <option value="3,8125">Machine Rolls</option>
+                  </select>
+                </label>
+                <label>
+                Water:
+                  <select
+                    value={waters}
+                    onChange={(event) => setWaters(event.target.value)}
+                  >
+                    <option value=""></option>
+                    <option value="3,8131">Stickers</option>
+                    <option value="3,8133">Material Conversion</option>
+                    <option value="3,8134">Cutting Fluids</option>
+                  </select>
+                </label>
+                <label>
+                Solvent:
+                  <select
+                    value={solvent}
+                    onChange={(event) => setSolvent(event.target.value)}
+                  >
+                    <option value=""></option>
+                    <option value="3,8132">Use of Less Harmful and Volatile Solvents</option>
+                    <option value="3,8135">Use of Water-based Paints</option>
+                    <option value="3,8137">Use of Soy-based Paints</option>
+                    <option value="3,8136">Solvent Reuse</option>
+                  </select>
+                </label>
+                <label>
+                Water Based Substitutes:
+                  <select
+                    value={waterBasedSubstitutes}
+                    onChange={(event) => setWaterBasedSubstitutes(event.target.value)}
+                  >
+                    <option value=""></option>
+                    <option value="3,8211">Cleaning</option>
+                    <option value="3,8214">Industrial Process</option>
+                  </select>
+                </label>
+                <label>
+                Inorganic Solutes:
+                  <select
+                    value={inorganicSolutes}
+                    onChange={(event) => setInorganicSolutes(event.target.value)}
+                  >
+                    <option value=""></option>
+                    <option value="3,8225">Trivalent Chromium</option>
+                    <option value="3,8228">non-hazardous reagents</option>
+                    <option value="3,8221">Neutral ph</option>
+                    <option value="3,8224">Cleaners</option>
+                  </select>
+                </label>
+                <label>
+                Solids:
+                  <select
+                    value={solids}
+                    onChange={(event) => setSolids(event.target.value)}
+                  >
+                    <option value=""></option>
+                    <option value="3,8312">Water Use</option>
+                    <option value="3,8313">Emissions</option>
+                    <option value="3,8314">Renewable Containers</option>
                   </select>
                 </label>
                 {/* <select
