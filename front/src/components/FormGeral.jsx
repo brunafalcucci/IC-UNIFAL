@@ -168,7 +168,7 @@ export function FormResiduosQuimicosEnergia() {
                   </select>
                 </label>
                 <label>
-                Recovey:
+                Recovery:
                   <select
                     value={recovery}
                     onChange={(event) => setRecovery(event.target.value)}
