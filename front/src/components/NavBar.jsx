@@ -10,8 +10,9 @@ const NavBar = () => {
       <img src={logo} alt="" />
       <WrapButtons> 
       <Link to='/form'> <button> CRITICALITY INDEX </button> </Link>
-     <Link to='/efficiency'> <button> EFFICIENCY ENERGETIC </button> </Link>
-     <Link to='/results'> <button> RESULTS TEST </button> </Link>
+      <Link to='/efficiency'> <button> EFFICIENCY ENERGETIC </button> </Link>
+      <Link to='/results'> <button> RESULTS TEST </button> </Link>
+      <Link to='/chemical'> <button> CHEMICAL TREATMENT </button> </Link>
       <button> ALGUMA COISA </button>
       <button> ALGUMA COISA </button>
       </WrapButtons>
