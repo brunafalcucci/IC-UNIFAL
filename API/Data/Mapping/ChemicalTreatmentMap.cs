@@ -392,20 +392,16 @@ namespace Data.Mapping
                 .HasColumnName("RemovingRollersFromCleaningMachines")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.Solvent1)
-                .HasColumnName("Solvent1")
+            builder.Property(prop => prop.Cleaning)
+                .HasColumnName("Cleaning")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.Solvent2)
-                .HasColumnName("Solvent2")
-                .HasColumnType("varchar");
-            
-            builder.Property(prop => prop.Solvent2)
-                .HasColumnName("Solvent2")
+            builder.Property(prop => prop.Distillation)
+                .HasColumnName("Distillation")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.Solvent3)
-                .HasColumnName("Solvent3")
+            builder.Property(prop => prop.ReuseLevel2)
+                .HasColumnName("ReuseLevel2")
                 .HasColumnType("varchar");
 
             builder.Property(prop => prop.WaterLevel2)

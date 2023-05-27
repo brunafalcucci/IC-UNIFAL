@@ -293,13 +293,13 @@ namespace Application.Models
         public string? RemovingRollersFromCleaningMachines { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? Solvent1 { get; set; }
+        public string? Cleaning { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? Solvent2 { get; set; }
+        public string? Distillation { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? Solvent3 { get; set; }
+        public string? ReuseLevel2 { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? WaterLevel2 { get; set; }
