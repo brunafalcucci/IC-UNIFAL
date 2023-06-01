@@ -56,13 +56,13 @@ namespace Application.Models
         public string? OtherMethods { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? MaterialContamination33131 { get; set; }
+        public string? Evaporator { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? MaterialContamination33132 { get; set; }
+        public string? ReverseOsmosis { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? MaterialContamination33133 { get; set; }
+        public string? BiologicalTreatment { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? Chemistry { get; set; }

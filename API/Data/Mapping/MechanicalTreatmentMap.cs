@@ -76,16 +76,16 @@ namespace Data.Mapping
                 .HasColumnName("OtherMethods")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.MaterialContamination33131)
-                .HasColumnName("MaterialContamination33131")
+            builder.Property(prop => prop.Evaporator)
+                .HasColumnName("Evaporator")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.MaterialContamination33132)
-                .HasColumnName("MaterialContamination33132")
+            builder.Property(prop => prop.ReverseOsmosis)
+                .HasColumnName("ReverseOsmosis")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.MaterialContamination33133)
-                .HasColumnName("MaterialContamination33133")
+            builder.Property(prop => prop.BiologicalTreatment)
+                .HasColumnName("BiologicalTreatment")
                 .HasColumnType("varchar");
 
             builder.Property(prop => prop.Chemistry)
