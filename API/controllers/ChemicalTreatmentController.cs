@@ -3038,9 +3038,9 @@ namespace Application.Controllers
         public string CalculateSolutesLevel2(double productsWithNeutralPHValue, double convertHydrocarbonCleanersToLessToxicOnesValue, double inorganicSolutionsValue)
         {
             LinguisticVariable productsWithNeutralPH = new( "ProductsWithNeutralPH", 0, 10 );
-            productsWithNeutralPH.AddLabel( new FuzzySet( "Low", new TrapezoidalFunction(0, 0, (float)2.5, 5) ) );
-            productsWithNeutralPH.AddLabel( new FuzzySet( "Medium", new TrapezoidalFunction((float)2.5, 5, (float)7.5) ) );
-            productsWithNeutralPH.AddLabel( new FuzzySet( "High", new TrapezoidalFunction(5, (float)7.5, 10, 10) ) );
+            productsWithNeutralPH.AddLabel( new FuzzySet( "Acid", new TrapezoidalFunction(0, 0, (float)5.6, 7) ) );
+            productsWithNeutralPH.AddLabel( new FuzzySet( "Neutral", new TrapezoidalFunction((float)5.6, 7, (float)8.2) ) );
+            productsWithNeutralPH.AddLabel( new FuzzySet( "Alkali", new TrapezoidalFunction(7, (float)8.2, 14, 14) ) );
 
             LinguisticVariable convertHydrocarbonCleanersToLessToxicOnes = new( "ConvertHydrocarbonCleanersToLessToxicOnes", 0, 10 );
             convertHydrocarbonCleanersToLessToxicOnes.AddLabel( new FuzzySet( "Low", new TrapezoidalFunction(0, 0, (float)2.5, 5) ) );
@@ -3067,33 +3067,33 @@ namespace Application.Controllers
 
             InferenceSystem IS = new ( fuzzyDB, new CentroidDefuzzifier( 1000 ) );
 
-            IS.NewRule("Rule 1", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Low THEN SolutesLevel2 IS VeryLow");
-            IS.NewRule("Rule 2", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Medium THEN SolutesLevel2 IS VeryLow");
-            IS.NewRule("Rule 3", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS High THEN SolutesLevel2 IS Low");
-            IS.NewRule("Rule 4", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Low THEN SolutesLevel2 IS VeryLow");
-            IS.NewRule("Rule 5", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Medium THEN SolutesLevel2 IS Low");
-            IS.NewRule("Rule 6", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS High THEN SolutesLevel2 IS Middle");
-            IS.NewRule("Rule 7", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Low THEN SolutesLevel2 IS Low");
-            IS.NewRule("Rule 8", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Medium THEN SolutesLevel2 IS Middle");
-            IS.NewRule("Rule 9", "IF ProductsWithNeutralPH IS Low and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS High THEN SolutesLevel2 IS High");
-            IS.NewRule("Rule 10", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Low THEN SolutesLevel2 IS VeryLow");
-            IS.NewRule("Rule 11", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Medium THEN SolutesLevel2 IS Low");
-            IS.NewRule("Rule 12", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS High THEN SolutesLevel2 IS Middle");
-            IS.NewRule("Rule 13", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Low THEN SolutesLevel2 IS Low");
-            IS.NewRule("Rule 14", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Medium THEN SolutesLevel2 IS Middle");
-            IS.NewRule("Rule 15", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS High THEN SolutesLevel2 IS High");
-            IS.NewRule("Rule 16", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Low THEN SolutesLevel2 IS Middle");
-            IS.NewRule("Rule 17", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Medium THEN SolutesLevel2 IS High");
-            IS.NewRule("Rule 18", "IF ProductsWithNeutralPH IS Medium and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS High THEN SolutesLevel2 IS VeryHigh");
-            IS.NewRule("Rule 19", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Low THEN SolutesLevel2 IS Low");
-            IS.NewRule("Rule 20", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Medium THEN SolutesLevel2 IS Middle");
-            IS.NewRule("Rule 21", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS High THEN SolutesLevel2 IS High");
-            IS.NewRule("Rule 22", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Low THEN SolutesLevel2 IS Middle");
-            IS.NewRule("Rule 23", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Medium THEN SolutesLevel2 IS High");
-            IS.NewRule("Rule 24", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS High THEN SolutesLevel2 IS VeryHigh");
-            IS.NewRule("Rule 25", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Low THEN SolutesLevel2 IS High");
-            IS.NewRule("Rule 26", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Medium THEN SolutesLevel2 IS VeryHigh");
-            IS.NewRule("Rule 27", "IF ProductsWithNeutralPH IS High and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS High THEN SolutesLevel2 IS VeryHigh");
+            IS.NewRule("Rule 1", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Low THEN SolutesLevel2 IS VeryLow");
+            IS.NewRule("Rule 2", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Medium THEN SolutesLevel2 IS VeryLow");
+            IS.NewRule("Rule 3", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS High THEN SolutesLevel2 IS Low");
+            IS.NewRule("Rule 4", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Low THEN SolutesLevel2 IS VeryLow");
+            IS.NewRule("Rule 5", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Medium THEN SolutesLevel2 IS Low");
+            IS.NewRule("Rule 6", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS High THEN SolutesLevel2 IS Middle");
+            IS.NewRule("Rule 7", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Low THEN SolutesLevel2 IS Low");
+            IS.NewRule("Rule 8", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Medium THEN SolutesLevel2 IS Middle");
+            IS.NewRule("Rule 9", "IF ProductsWithNeutralPH IS Acid and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS High THEN SolutesLevel2 IS High");
+            IS.NewRule("Rule 10", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Low THEN SolutesLevel2 IS VeryLow");
+            IS.NewRule("Rule 11", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Medium THEN SolutesLevel2 IS Low");
+            IS.NewRule("Rule 12", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS High THEN SolutesLevel2 IS Middle");
+            IS.NewRule("Rule 13", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Low THEN SolutesLevel2 IS Low");
+            IS.NewRule("Rule 14", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Medium THEN SolutesLevel2 IS Middle");
+            IS.NewRule("Rule 15", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS High THEN SolutesLevel2 IS High");
+            IS.NewRule("Rule 16", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Low THEN SolutesLevel2 IS Middle");
+            IS.NewRule("Rule 17", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Medium THEN SolutesLevel2 IS High");
+            IS.NewRule("Rule 18", "IF ProductsWithNeutralPH IS Neutral and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS High THEN SolutesLevel2 IS VeryHigh");
+            IS.NewRule("Rule 19", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Low THEN SolutesLevel2 IS Low");
+            IS.NewRule("Rule 20", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS Medium THEN SolutesLevel2 IS Middle");
+            IS.NewRule("Rule 21", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS Low and InorganicSolutions IS High THEN SolutesLevel2 IS High");
+            IS.NewRule("Rule 22", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Low THEN SolutesLevel2 IS Middle");
+            IS.NewRule("Rule 23", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS Medium THEN SolutesLevel2 IS High");
+            IS.NewRule("Rule 24", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS Medium and InorganicSolutions IS High THEN SolutesLevel2 IS VeryHigh");
+            IS.NewRule("Rule 25", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Low THEN SolutesLevel2 IS High");
+            IS.NewRule("Rule 26", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS Medium THEN SolutesLevel2 IS VeryHigh");
+            IS.NewRule("Rule 27", "IF ProductsWithNeutralPH IS Alkali and ConvertHydrocarbonCleanersToLessToxicOnes IS High and InorganicSolutions IS High THEN SolutesLevel2 IS VeryHigh");
 
             IS.SetInput("ProductsWithNeutralPH", (float)productsWithNeutralPHValue);
             IS.SetInput("ConvertHydrocarbonCleanersToLessToxicOnes", (float)convertHydrocarbonCleanersToLessToxicOnesValue);
@@ -3104,7 +3104,7 @@ namespace Application.Controllers
             double[] input = new double[2];
             for (int i = 0; i < 2; i++)
             {
-                IS.SetInput("ProductsWithNeutralPH", i == 0 ? 0 : (float)9.99);
+                IS.SetInput("ProductsWithNeutralPH", i == 0 ? 0 : (float)13.99);
                 IS.SetInput("ConvertHydrocarbonCleanersToLessToxicOnes", i == 0 ? 0 : (float)9.99);
                 IS.SetInput("InorganicSolutions", i == 0 ? 0 : (float)9.99);
                 input[i] = IS.Evaluate("SolutesLevel2");
