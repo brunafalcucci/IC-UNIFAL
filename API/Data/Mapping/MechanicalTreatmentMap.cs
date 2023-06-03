@@ -64,8 +64,8 @@ namespace Data.Mapping
                 .HasColumnName("Reduction")
                 .HasColumnType("varchar");
 
-            builder.Property(prop => prop.PH7)
-                .HasColumnName("PH7")
+            builder.Property(prop => prop.PH)
+                .HasColumnName("PH")
                 .HasColumnType("varchar");
 
             builder.Property(prop => prop.Redox)

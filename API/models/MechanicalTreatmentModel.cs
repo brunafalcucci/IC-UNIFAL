@@ -47,7 +47,7 @@ namespace Application.Models
         public string? Reduction { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? PH7 { get; set; }
+        public string? PH { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? Redox { get; set; }
