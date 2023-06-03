@@ -195,6 +195,10 @@ namespace Data.Mapping
             builder.Property(prop => prop.EliminationOfLeaksInWaterLinesAndValves)
                 .HasColumnName("EliminationOfLeaksInWaterLinesAndValves")
                 .HasColumnType("varchar");
+            
+            builder.Property(prop => prop.ReplacementOfWaterRegretInProcesses)
+                .HasColumnName("ReplacementOfWaterRegretInProcesses")
+                .HasColumnType("varchar");
 
             builder.Property(prop => prop.ReplacementOfWaterCoolingInProcesses)
                 .HasColumnName("ReplacementOfWaterCoolingInProcesses")

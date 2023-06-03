@@ -144,6 +144,9 @@ namespace Application.Models
 
         [Column(TypeName = "varchar")]
         public string? EliminationOfLeaksInWaterLinesAndValves { get; set; }
+        
+        [Column(TypeName = "varchar")]
+        public string? ReplacementOfWaterRegretInProcesses { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? ReplacementOfWaterCoolingInProcesses { get; set; }
