@@ -44,8 +44,8 @@ namespace Data.Mapping
                 .HasColumnName("Neutralization")
                 .HasColumnType("varchar");
             
-            builder.Property(prop => prop.MaterialContamination)
-                .HasColumnName("MaterialContamination")
+            builder.Property(prop => prop.MaterialConcentration)
+                .HasColumnName("MaterialConcentration")
                 .HasColumnType("varchar");
 
             builder.Property(prop => prop.RemovalOfContaminants)

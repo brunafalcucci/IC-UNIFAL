@@ -32,7 +32,7 @@ namespace Application.Models
         public string? Neutralization { get; set; }
 
         [Column(TypeName = "varchar")]
-        public string? MaterialContamination { get; set; }
+        public string? MaterialConcentration { get; set; }
 
         [Column(TypeName = "varchar")]
         public string? RemovalOfContaminants { get; set; }
