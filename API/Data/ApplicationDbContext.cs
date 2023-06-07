@@ -17,6 +17,7 @@ namespace Application.Context
         public DbSet<CriticalityIndex> CriticalityIndex => Set<CriticalityIndex>();
         public DbSet<ChemicalTreatment> ChemicalTreatment => Set<ChemicalTreatment>();
         public DbSet<MechanicalTreatment> MechanicalTreatment => Set<MechanicalTreatment>();
+        public DbSet<WasteEnergyUse> WasteEnergyUse => Set<WasteEnergyUse>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +26,7 @@ namespace Application.Context
             modelBuilder.Entity<CriticalityIndex>(new CriticalityIndexMap().Configure);
             modelBuilder.Entity<ChemicalTreatment>(new ChemicalTreatmentMap().Configure);
             modelBuilder.Entity<MechanicalTreatment>(new MechanicalTreatmentMap().Configure);
+            modelBuilder.Entity<WasteEnergyUse>(new WasteEnergyUseMap().Configure);
         }
     }
 }

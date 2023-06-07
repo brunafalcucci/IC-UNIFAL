@@ -35,6 +35,7 @@ namespace Application
             service.AddScoped<ICriticalityIndexRepository, CriticalityIndexRepository>();
             service.AddScoped<IChemicalTreatmentRepository, ChemicalTreatmentRepository>();
             service.AddScoped<IMechanicalTreatmentRepository, MechanicalTreatmentRepository>();
+            service.AddScoped<IWasteEnergyUseRepository, WasteEnergyUseRepository>();
         }
 
         public static void Configure(IApplicationBuilder app, IHostEnvironment env)
