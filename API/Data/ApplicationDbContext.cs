@@ -19,6 +19,7 @@ namespace Application.Context
         public DbSet<MechanicalTreatment> MechanicalTreatment => Set<MechanicalTreatment>();
         public DbSet<WasteEnergyUse> WasteEnergyUse => Set<WasteEnergyUse>();
         public DbSet<Motor> Motor => Set<Motor>();
+        public DbSet<Heating> Heating => Set<Heating>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +30,7 @@ namespace Application.Context
             modelBuilder.Entity<MechanicalTreatment>(new MechanicalTreatmentMap().Configure);
             modelBuilder.Entity<WasteEnergyUse>(new WasteEnergyUseMap().Configure);
             modelBuilder.Entity<Motor>(new MotorMap().Configure);
+            modelBuilder.Entity<Heating>(new HeatingMap().Configure);
         }
     }
 }
