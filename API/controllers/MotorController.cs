@@ -26,7 +26,7 @@ namespace Application.Controllers
         {
             try
             {
-                motor.Management = CalculateManegement(Convert.ToDouble(motor.Maintenance), Convert.ToDouble(motor.Cleaning), Convert.ToDouble(motor.Moisture));
+                motor.Management = CalculateManagement(Convert.ToDouble(motor.Maintenance), Convert.ToDouble(motor.Cleaning), Convert.ToDouble(motor.Moisture));
                 motor.Performance = CalculatePerformance(Convert.ToDouble(motor.Operation), Convert.ToDouble(motor.Noise), Convert.ToDouble(motor.Ventilation));
                 motor.MotorValue = CalculateMotor(Convert.ToDouble(motor.Management), Convert.ToDouble(motor.Performance), Convert.ToDouble(motor.Temperature));
 
@@ -64,7 +64,7 @@ namespace Application.Controllers
             }
         }
 
-        public string CalculateManegement(double maintenanceValue, double cleaningValue, double moistureValue)
+        public string CalculateManagement(double maintenanceValue, double cleaningValue, double moistureValue)
         {
             LinguisticVariable maintenance = new( "Maintenance", 0, 10 );
             maintenance.AddLabel( new FuzzySet( "Low", new TrapezoidalFunction(0, 0, (float)2.5, 5) ) );
