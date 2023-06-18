@@ -1443,7 +1443,7 @@ namespace Application.Controllers
             }
             else if (resultado > 2.5 && resultado <= 4)
             {
-                return resultado.ToString() + " - PotentiallyCritical";
+                return resultado.ToString() + " - Potentially Critical";
             }
             else if (resultado > 4 && resultado <= 6)
             {
@@ -1451,7 +1451,7 @@ namespace Application.Controllers
             }
             else if (resultado > 6 && resultado <= 8)
             {
-                return resultado.ToString() + " - PotentiallyUncritical";
+                return resultado.ToString() + " - Potentially Uncritical";
             }
             else
             {

@@ -445,7 +445,7 @@ namespace Application.Controllers
 
             if (resultado >= 0 && resultado <= 2.5)
             {
-                return resultado.ToString() + " - VeryInadequate";
+                return resultado.ToString() + " - Very Inadequate";
             }
             else if (resultado > 2.5 && resultado <= 4)
             {
@@ -461,7 +461,7 @@ namespace Application.Controllers
             }
             else
             {
-                return resultado.ToString() + " - VeryAdequate";
+                return resultado.ToString() + " - Very Adequate";
             }
         }
     }
