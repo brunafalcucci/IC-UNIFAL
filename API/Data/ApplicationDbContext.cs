@@ -20,6 +20,7 @@ namespace Application.Context
         public DbSet<WasteEnergyUse> WasteEnergyUse => Set<WasteEnergyUse>();
         public DbSet<Motor> Motor => Set<Motor>();
         public DbSet<Heating> Heating => Set<Heating>();
+        public DbSet<AirCompressor> AirCompressor => Set<AirCompressor>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +32,7 @@ namespace Application.Context
             modelBuilder.Entity<WasteEnergyUse>(new WasteEnergyUseMap().Configure);
             modelBuilder.Entity<Motor>(new MotorMap().Configure);
             modelBuilder.Entity<Heating>(new HeatingMap().Configure);
+            modelBuilder.Entity<AirCompressor>(new AirCompressorMap().Configure);
         }
     }
 }
