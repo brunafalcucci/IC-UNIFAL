@@ -21,6 +21,7 @@ namespace Application.Context
         public DbSet<Motor> Motor => Set<Motor>();
         public DbSet<Heating> Heating => Set<Heating>();
         public DbSet<AirCompressor> AirCompressor => Set<AirCompressor>();
+        public DbSet<CoolingSystem> CoolingSystem => Set<CoolingSystem>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +34,7 @@ namespace Application.Context
             modelBuilder.Entity<Motor>(new MotorMap().Configure);
             modelBuilder.Entity<Heating>(new HeatingMap().Configure);
             modelBuilder.Entity<AirCompressor>(new AirCompressorMap().Configure);
+            modelBuilder.Entity<CoolingSystem>(new CoolingSystemMap().Configure);
         }
     }
 }
