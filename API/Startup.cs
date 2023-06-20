@@ -40,6 +40,7 @@ namespace Application
             service.AddScoped<IHeatingRepository, HeatingRepository>();
             service.AddScoped<IAirCompressorRepository, AirCompressorRepository>();
             service.AddScoped<ICoolingSystemRepository, CoolingSystemRepository>();
+            service.AddScoped<ILightingSystemRepository, LightingSystemRepository>();
         }
 
         public static void Configure(IApplicationBuilder app, IHostEnvironment env)
