@@ -25,6 +25,7 @@ namespace Application.Context
         public DbSet<LightingSystem> LightingSystem => Set<LightingSystem>();
         public DbSet<Condenser> Condenser => Set<Condenser>();
         public DbSet<Boiler> Boiler => Set<Boiler>();
+        public DbSet<AirConditioning> AirConditioning => Set<AirConditioning>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +42,7 @@ namespace Application.Context
             modelBuilder.Entity<LightingSystem>(new LightingSystemMap().Configure);
             modelBuilder.Entity<Condenser>(new CondenserMap().Configure);
             modelBuilder.Entity<Boiler>(new BoilerMap().Configure);
+            modelBuilder.Entity<AirConditioning>(new AirConditioningMap().Configure);
         }
     }
 }

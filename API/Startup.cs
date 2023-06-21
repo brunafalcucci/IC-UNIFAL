@@ -43,6 +43,7 @@ namespace Application
             service.AddScoped<ILightingSystemRepository, LightingSystemRepository>();
             service.AddScoped<ICondenserRepository, CondenserRepository>();
             service.AddScoped<IBoilerRepository, BoilerRepository>();
+            service.AddScoped<IAirConditioningRepository, AirConditioningRepository>();
         }
 
         public static void Configure(IApplicationBuilder app, IHostEnvironment env)
